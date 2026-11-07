@@ -1,7 +1,7 @@
 import CacheDemo from "@/components/CacheDemo";
 import QueueDemo from "@/components/QueueDemo";
 import Topology from "@/components/Topology";
-import { CopyEmail, ThemeToggle } from "@/components/ui";
+import { CopyEmail, GridGlow, ThemeToggle } from "@/components/ui";
 import { carreira, casos, contato, projetos } from "@/content/site";
 
 const d = (n: number) => ({ "--d": n }) as React.CSSProperties;
@@ -9,6 +9,7 @@ const d = (n: number) => ({ "--d": n }) as React.CSSProperties;
 export default function Home() {
   return (
     <>
+      <GridGlow />
       <header className="nav">
         <div className="wrap nav-inner">
           <a href="#topo" className="logo">ideraldo<span>.com</span></a>
@@ -49,6 +50,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <div className="rail-track">
+          <span className="rail" aria-hidden="true" />
 
         <section id="carreira" className="section">
           <div className="wrap">
@@ -190,6 +194,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        </div>
       </main>
 
       <footer className="wrap footer">

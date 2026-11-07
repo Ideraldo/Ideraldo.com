@@ -2,6 +2,37 @@
 
 import { useEffect, useState } from "react";
 
+// Grade do fundo que se acende ao redor do cursor, como uma lanterna no papel de blueprint.
+// Desligada no toque e sob prefers-reduced-motion.
+export function GridGlow() {
+  useEffect(() => {
+    if (window.matchMedia("(pointer: coarse)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = document.getElementById("grid-glow");
+    if (!el) return;
+    let raf = 0, x = 0, y = 0, shown = false;
+    const onMove = (e: PointerEvent) => {
+      x = e.clientX; y = e.clientY;
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        el.style.setProperty("--mx", `${x}px`);
+        el.style.setProperty("--my", `${y}px`);
+        if (!shown) { el.style.opacity = "1"; shown = true; }
+      });
+    };
+    const onLeave = () => { el.style.opacity = "0"; shown = false; };
+    window.addEventListener("pointermove", onMove, { passive: true });
+    document.addEventListener("pointerleave", onLeave);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      document.removeEventListener("pointerleave", onLeave);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+  return <div id="grid-glow" className="grid-glow" aria-hidden="true" />;
+}
+
 export function ThemeToggle() {
   const [tema, setTema] = useState<"light" | "dark" | null>(null);
 

@@ -71,4 +71,4 @@ Ressalva importante (decisão em aberto): o Ideraldo acha que as demos podem par
 
 - Links dos projetos pessoais: Estuda10 (estuda10.com.br), RuiFinance (financas.ideraldo.com) e Dragons (playtest em dragons-playtest.pages.dev) já estão linkados. O Ideraldinho não tem site (roda local); fica sem link até haver um vídeo de demonstração ou algo equivalente.
 - Decidir se as demos do /lab ficam como estão ou viram o sistema real da fase 3.
-- Ideias de evolução visual já levantadas: grade do fundo reagindo ao cursor, uma trilha tracejada ligando as seções como um fio do diagrama, e o log do hero mostrando tráfego real quando a API existir.
+- Evolução visual: a grade do fundo reagindo ao cursor e a trilha tracejada ligando as seções já estão implementadas (`GridGlow` em `components/ui.tsx`; `.grid-glow`, `.rail` e os nós em `.route::before` no `globals.css`). Falta o log do hero mostrar tráfego real, que depende da API da fase 2.

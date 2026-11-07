@@ -9,7 +9,7 @@
   --ink: #0b0c0e;
   --muted: #5d6470;
   --line: #c6cbd3;
-  --grid: rgb(31 45 230 / 0.055);
+  --grid: rgb(31 45 230 / 0.055); --grid-bright: rgb(31 45 230 / 0.22);
   --accent: #1f2de6;
   --accent-ink: #ffffff;
   --accent-soft: rgb(31 45 230 / 0.09);
@@ -29,14 +29,14 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0b0c0e; --surface: #15171a; --raised: #191b1f; --ink: #eef0f3; --muted: #8f96a1;
-    --line: #2b2f36; --grid: rgb(120 135 255 / 0.06); --accent: #7482ff; --accent-ink: #0b0c0e;
+    --line: #2b2f36; --grid: rgb(120 135 255 / 0.06); --grid-bright: rgb(120 135 255 / 0.30); --accent: #7482ff; --accent-ink: #0b0c0e;
     --accent-soft: rgb(116 130 255 / 0.12); --packet: #ffd23f; --ok: #3ccb7f; --warn: #f2b13a; --err: #ff6a5e;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0b0c0e; --surface: #15171a; --raised: #191b1f; --ink: #eef0f3; --muted: #8f96a1;
-  --line: #2b2f36; --grid: rgb(120 135 255 / 0.06); --accent: #7482ff; --accent-ink: #0b0c0e;
+  --line: #2b2f36; --grid: rgb(120 135 255 / 0.06); --grid-bright: rgb(120 135 255 / 0.30); --accent: #7482ff; --accent-ink: #0b0c0e;
   --accent-soft: rgb(116 130 255 / 0.12); --packet: #ffd23f; --ok: #3ccb7f; --warn: #f2b13a; --err: #ff6a5e;
   color-scheme: dark;
 }
@@ -327,4 +327,50 @@ a.contact-row:hover { padding-left: 6px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 1ms !important; animation-delay: 0ms !important; transition-duration: 1ms !important; }
+}
+
+/* ===== Fase 1: trilha ligando as seções e grade reagindo ao cursor ===== */
+
+/* Grade que se acende ao redor do cursor. Fica atrás do conteúdo (main e footer sobem no z). */
+.grid-glow {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0;
+  transition: opacity 0.4s ease;
+  background-image:
+    linear-gradient(var(--grid-bright) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-bright) 1px, transparent 1px);
+  background-size: 32px 32px;
+  -webkit-mask: radial-gradient(170px circle at var(--mx, -300px) var(--my, -300px), #000 0%, transparent 72%);
+          mask: radial-gradient(170px circle at var(--mx, -300px) var(--my, -300px), #000 0%, transparent 72%);
+}
+.nav { z-index: 20; }
+main, .footer { position: relative; z-index: 1; }
+
+/* Trilha: uma linha tracejada no vão esquerdo, alinhada à coluna de conteúdo,
+   com um nó em cada rótulo de rota. Continua o fio do diagrama do hero pelo site. */
+.rail-track { position: relative; }
+.rail {
+  position: absolute; top: 0; bottom: 0;
+  left: max(20px, calc((100% - 1200px) / 2 + 20px));
+  width: 1px; z-index: 0; pointer-events: none;
+  background: repeating-linear-gradient(var(--line) 0 4px, transparent 4px 9px);
+}
+.route { position: relative; }
+.section-head .route::before,
+.career-grid .route::before,
+.close-grid .route::before {
+  content: ""; position: absolute; left: -20px; top: 1px;
+  width: 9px; height: 9px; transform: translateX(-50%);
+  background: var(--bg); border: 1.5px solid var(--muted);
+  transition: background-color 0.18s, border-color 0.18s;
+}
+.section:hover .section-head > .route::before,
+.section:hover .career-grid .route::before,
+.section:hover .close-grid .route::before {
+  background: var(--accent); border-color: var(--accent);
+}
+@media (max-width: 960px) {
+  .rail { display: none; }
+  .section-head .route::before,
+  .career-grid .route::before,
+  .close-grid .route::before { display: none; }
 }
