@@ -34,7 +34,7 @@ export default function Home() {
               </h1>
               <p className="lede enter" style={{ "--d": 2 } as React.CSSProperties}>
                 Cinco anos construindo sistemas para uma gestora de investimentos dos EUA, uma rede
-                global de hotéis e, hoje, um banco. Este site também é um sistema: cada serviço do
+                global de hotéis e, hoje, para o maior banco da América Latina. Este site também é um sistema: cada serviço do
                 diagrama leva a uma parte dele.
               </p>
               <div className="hero-actions enter" style={{ "--d": 3 } as React.CSSProperties}>
