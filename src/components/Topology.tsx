@@ -6,9 +6,9 @@ import { prefersReducedMotion } from "@/lib/canvas";
 type Servico = { id: string; rota: string; meta: string };
 
 const SERVICOS: Servico[] = [
-  { id: "lab", rota: "/lab", meta: "2 demos ao vivo" },
-  { id: "projetos", rota: "/projetos", meta: "3 casos" },
-  { id: "carreira", rota: "/carreira", meta: "5 anos" },
+  { id: "carreira", rota: "/carreira", meta: "5 anos · 3 empresas" },
+  { id: "projetos", rota: "/projetos", meta: "projetos pessoais" },
+  { id: "lab", rota: "/lab", meta: "demos ao vivo" },
   { id: "contato", rota: "/contato", meta: "e-mail · LinkedIn" },
 ];
 

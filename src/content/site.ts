@@ -15,7 +15,7 @@ export type Caso = {
   stack: string[];
   // Fluxo desenhado no cartão: cada item vira um nó, ligados em sequência.
   fluxo: string[];
-  destaque: number; // índice do nó em destaque
+  minhaParte: string[]; // nós em que o Ideraldo trabalhou diretamente
 };
 
 export const casos: Caso[] = [
@@ -32,8 +32,8 @@ export const casos: Caso[] = [
       "21 patches de CVE em três repositórios e filesystem somente leitura em produção",
     ],
     stack: ["Node.js", "TypeScript", "Redis", "Stripe", "AWS"],
-    fluxo: ["App", "BFF", "Redis", "Regras", "Stripe"],
-    destaque: 2,
+    fluxo: ["App web e mobile", "BFFs", "Redis", "Camada de regras", "Stripe"],
+    minhaParte: ["BFFs", "Redis", "Camada de regras", "Stripe"],
   },
   {
     id: "rag",
@@ -46,8 +46,8 @@ export const casos: Caso[] = [
       "Respostas baseadas nos documentos da empresa, com o contexto recuperado a cada pergunta",
     ],
     stack: ["C#", ".NET", "Python", "RAG", "LLM"],
-    fluxo: ["Pergunta", "API .NET", "Busca", "LLM"],
-    destaque: 1,
+    fluxo: ["Front", "API .NET", "Serviço Python", "Busca + LLM"],
+    minhaParte: ["API .NET"],
   },
   {
     id: "gestora",
@@ -61,8 +61,8 @@ export const casos: Caso[] = [
       "Mais de 50% menos chamados de suporte",
     ],
     stack: ["C#", ".NET Core", "Angular", "Azure", "Datadog"],
-    fluxo: ["Tela", "API", "Query", "SQL"],
-    destaque: 2,
+    fluxo: ["Angular", "API .NET", "MSAL na Azure", "Banco SQL"],
+    minhaParte: ["Angular", "API .NET", "MSAL na Azure", "Banco SQL"],
   },
 ];
 
