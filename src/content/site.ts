@@ -96,6 +96,7 @@ export const projetos: Projeto[] = [
     texto:
       "Controle financeiro pessoal que eu uso no dia a dia, do lançamento de gastos aos relatórios. Next.js no front, Supabase no back.",
     stack: ["Next.js", "Supabase", "TypeScript"],
+    link: "https://financas.ideraldo.com",
   },
   {
     nome: "Dragons",
@@ -103,6 +104,7 @@ export const projetos: Projeto[] = [
     texto:
       "Jogo de cartas estilo Reigns num reino medieval. O motor de regras é um pacote Dart puro, testável isolado, e cerca de 278 cartas vivem como dados declarativos. Um teste automático quebra o build se uma carta cita algo que a partida não viveu.",
     stack: ["Flutter", "Dart", "Flame"],
+    link: "https://dragons-playtest.pages.dev",
   },
 ];
 

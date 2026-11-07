@@ -34,10 +34,10 @@ Quatro em destaque, escolhidos por serem os mais recentes e elaborados, cobrindo
 
 | Nome no site | Repositório | O que é | Stack |
 |---|---|---|---|
-| **Estuda10** | `smart-text-quiz` | SaaS que gera provas e simulados a partir de PDFs e anotações, com RAG sobre documentos indexados. Billing e e-mails transacionais. Nasceu para a mãe do Ideraldo, professora. | React, Supabase (Postgres + pgvector, Auth, Storage, Edge Functions em Deno), Google Gemini (geração e embeddings), Stripe. Site: estuda10.com |
+| **Estuda10** | `smart-text-quiz` | SaaS que gera provas e simulados a partir de PDFs e anotações, com RAG sobre documentos indexados. Billing e e-mails transacionais. Nasceu para a mãe do Ideraldo, professora. | React, Supabase (Postgres + pgvector, Auth, Storage, Edge Functions em Deno), Google Gemini (geração e embeddings), Stripe. Site: estuda10.com.br |
 | **Ideraldinho** | `Self-hosted-voice-assistant` | Assistente de voz cliente-servidor para substituir uma Alexa sem perder portabilidade. Dois processos desde o primeiro commit: o aparelho capta, transcreve (faster-whisper) e fala (Piper) localmente; o gateway guarda o LLM, os segredos e as ferramentas que precisam de internet. Timers e alarmes sempre no aparelho. Hoje roda num PC; o Raspberry Pi vem depois. | Python, faster-whisper (STT), Piper (TTS), LLM via gateway, WebSocket, Spotify e busca web como tools |
-| **RuiFinance** | `RuiFinance` | App pessoal de controle financeiro que o Ideraldo usa no dia a dia. | Next.js, Supabase, TypeScript, Vercel |
-| **Dragons** | `DragonKingdom` | Jogo de cartas estilo Reigns num reino medieval. Motor de regras em Dart puro (testável isolado, reutilizável), ~278 cartas como dados declarativos, e um teste automático que quebra o build se uma carta cita algo que a partida não viveu (regra de coerência). Vale Vivo em 2D com Flame. | Flutter, Dart, Flame, Riverpod |
+| **RuiFinance** | `RuiFinance` | App pessoal de controle financeiro que o Ideraldo usa no dia a dia. | Next.js, Supabase, TypeScript, Vercel. Site: financas.ideraldo.com |
+| **Dragons** | `DragonKingdom` | Jogo de cartas estilo Reigns num reino medieval. Motor de regras em Dart puro (testável isolado, reutilizável), ~278 cartas como dados declarativos, e um teste automático que quebra o build se uma carta cita algo que a partida não viveu (regra de coerência). Vale Vivo em 2D com Flame. | Flutter, Dart, Flame, Riverpod. Playtest: dragons-playtest.pages.dev |
 
 Outros repositórios do Ideraldo, não destacados no site: `DesdeQuinta` (app da banda, Firestore, offline-first, no ar em banda.ideraldo.com), `Analise-de-Tumores-Cerebrais` (CNN com MobileNetV2 para MRI, projeto de faculdade), `RodrigoPersonal` (site estático de personal trainer), `Sharkk` (framework de segurança ofensiva, deixado de fora por não ser o foco das vagas).
 
@@ -69,6 +69,6 @@ Ressalva importante (decisão em aberto): o Ideraldo acha que as demos podem par
 
 ## 8. Pendências
 
-- Links dos projetos pessoais: só o Estuda10 tem site confirmado. Falta a URL no ar do RuiFinance e definir o que linkar para Ideraldinho e Dragons (sem site hoje; opções: repositório se público, vídeo de demonstração, ou nada por enquanto). Confirmar também o domínio do Estuda10 (estuda10.com ou .com.br).
+- Links dos projetos pessoais: Estuda10 (estuda10.com.br), RuiFinance (financas.ideraldo.com) e Dragons (playtest em dragons-playtest.pages.dev) já estão linkados. O Ideraldinho não tem site (roda local); fica sem link até haver um vídeo de demonstração ou algo equivalente.
 - Decidir se as demos do /lab ficam como estão ou viram o sistema real da fase 3.
 - Ideias de evolução visual já levantadas: grade do fundo reagindo ao cursor, uma trilha tracejada ligando as seções como um fio do diagrama, e o log do hero mostrando tráfego real quando a API existir.
