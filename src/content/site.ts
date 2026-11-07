@@ -66,27 +66,43 @@ export const casos: Caso[] = [
   },
 ];
 
-export type Lab = { nome: string; estado: "no ar" | "em construção"; texto: string; link?: string };
+export type Projeto = {
+  nome: string;
+  estado: "no ar" | "em construção";
+  texto: string;
+  stack: string[];
+  link?: string; // site no ar; o card só mostra o link quando ele existe
+};
 
-export const lab: Lab[] = [
+export const projetos: Projeto[] = [
   {
     nome: "Estuda10",
     estado: "no ar",
     texto:
-      "Transforma PDFs e anotações de professores em provas e simulados com RAG. Criei para minha mãe, que é professora.",
+      "SaaS que transforma PDFs e anotações de professores em provas e simulados, com RAG sobre os documentos indexados. Pergunta o que falta quando o pedido é vago. Criei para minha mãe, que é professora.",
+    stack: ["React", "Supabase", "pgvector", "Gemini", "Stripe"],
     link: "https://estuda10.com.br",
   },
   {
-    nome: "Marcos-AI",
+    nome: "Ideraldinho",
     estado: "em construção",
     texto:
-      "Assistente de voz próprio num Raspberry Pi 5. O aparelho só capta áudio; a IA roda num gateway remoto com tool calling.",
+      "Assistente de voz cliente-servidor. O aparelho capta, transcreve e fala localmente; o gateway remoto guarda o LLM e as ferramentas que precisam de internet. Timers e alarmes rodam sempre no aparelho, mesmo offline.",
+    stack: ["Python", "faster-whisper", "Piper", "LLM"],
   },
   {
-    nome: "Histórias com IA",
+    nome: "RuiFinance",
+    estado: "no ar",
+    texto:
+      "Controle financeiro pessoal que eu uso no dia a dia, do lançamento de gastos aos relatórios. Next.js no front, Supabase no back.",
+    stack: ["Next.js", "Supabase", "TypeScript"],
+  },
+  {
+    nome: "Dragons",
     estado: "em construção",
     texto:
-      "Pipeline com agentes que transforma uma ideia curta em vídeo narrado de terror, com enquete para o próximo capítulo.",
+      "Jogo de cartas estilo Reigns num reino medieval. O motor de regras é um pacote Dart puro, testável isolado, e cerca de 278 cartas vivem como dados declarativos. Um teste automático quebra o build se uma carta cita algo que a partida não viveu.",
+    stack: ["Flutter", "Dart", "Flame"],
   },
 ];
 

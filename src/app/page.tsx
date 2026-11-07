@@ -2,7 +2,7 @@ import CacheDemo from "@/components/CacheDemo";
 import QueueDemo from "@/components/QueueDemo";
 import Topology from "@/components/Topology";
 import { CopyEmail, ThemeToggle } from "@/components/ui";
-import { carreira, casos, contato, lab } from "@/content/site";
+import { carreira, casos, contato, projetos } from "@/content/site";
 
 const d = (n: number) => ({ "--d": n }) as React.CSSProperties;
 
@@ -116,11 +116,12 @@ export default function Home() {
               <p className="section-lede">O que construo fora do trabalho, quase sempre com IA no meio.</p>
             </header>
             <div className="side-projects">
-              {lab.map((l) => (
+              {projetos.map((l) => (
                 <article key={l.nome} className="side">
                   <p className={`state ${l.estado === "no ar" ? "is-live" : ""}`}>{l.estado}</p>
                   <h3>{l.nome}</h3>
                   <p>{l.texto}</p>
+                  <p className="side-stack">{l.stack.join(" · ")}</p>
                   {l.link && <a className="text-link" href={l.link} target="_blank" rel="noopener">{l.link.replace("https://", "")} ↗</a>}
                 </article>
               ))}

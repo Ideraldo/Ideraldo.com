@@ -266,11 +266,13 @@ h2 { font-weight: 500; font-size: clamp(34px, 4.6vw, 58px); line-height: 1.02; l
 @keyframes hop { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(20px); } }
 
 .sub-head { margin-top: 56px; margin-bottom: 20px; font-weight: 500; font-size: 22px; letter-spacing: -0.02em; }
-.side-projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-@media (max-width: 860px) { .side-projects { grid-template-columns: minmax(0, 1fr); } }
+.side-projects { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 1000px) { .side-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .side-projects { grid-template-columns: minmax(0, 1fr); } }
 .side { display: flex; flex-direction: column; gap: 10px; padding: 22px; border: 1px solid var(--line); background: var(--raised); }
 .side h3 { font-weight: 500; font-size: 21px; letter-spacing: -0.02em; }
-.side p:not(.state) { color: var(--muted); font-size: 15px; flex: 1; }
+.side > p:not(.state):not(.side-stack) { color: var(--muted); font-size: 15px; flex: 1; }
+.side-stack { font: 500 12px/1.5 var(--font-mono); color: var(--muted); }
 .state { display: inline-flex; align-items: center; gap: 8px; font: 500 12px/1 var(--font-mono); color: var(--accent); }
 .state::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
 .state.is-live { color: var(--ok); }
